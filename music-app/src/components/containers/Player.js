@@ -27,6 +27,15 @@ const themeLight = {
 
 const Player = ({ match, history, location }) => {
   const videos = JSON.parse(document.querySelector('[name="video"]').value);
+  const savedState = JSON.parse(localStorage.getItem(`${videos.playlistId}`));
+
+  const [state, setState] = useState({
+    videos: savedState ? savedState.videos : videos.playlist,
+    activeVideo: savedState ? savedState.activeVideo : videos.playlist[0],
+    nightMode: savedState ? savedState.nightMode : true,
+    playlisted: savedState ? savedState.playlistId : videos.playlistId,
+    autoplay: false,
+  })
   const [state, setState] = useState({
     videos: videos.playlist,
     activeVideo: videos.playlist[0],
@@ -34,6 +43,13 @@ const Player = ({ match, history, location }) => {
     playlistid: videos.playlistId,
     autoplay: false,
   });
+
+  useEffect(
+    ()=>{
+      localStorage.setItem(`${state.playlistId}`, JSON.stringify({...state}));
+    },
+    [state]
+  )
 
   useEffect(() => {
     const videoId = match.params.activeVideo;
@@ -69,12 +85,21 @@ const Player = ({ match, history, location }) => {
 
     const nextVideo = currentVideoIndex === state.videos.length - 1 ? 0 : current + 1;
 
-    props.historypush({
+    props.history.push({
       pathname:`${state.videos[nextVideo].id}`,
       autoplay: false
     })
   };
-  const progressCallback = () => {};
+  const progressCallback = e => {
+    if (e.playedSeconds > 10 && e.playedSeconds < 11){
+      setState({
+        ...state,
+        videos: state.videos.map(element => {
+          return element.id === state.activeVideo.id ? {...element, played: true}:element;
+        })
+      })
+    }
+  };
 
   return (
     <ThemeProvider theme={state.nightMode ? theme : themeLight}>
