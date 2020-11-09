@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledNightmode = styled.div`
+const StyledNightMode = styled.div`
   font-family: "Hind", sans-serif;
   font-weight: 800;
   font-size: 1.6em;
@@ -8,8 +8,6 @@ const StyledNightmode = styled.div`
   padding: 0;
   margin: 20px;
 
-  /* CSS taken from https://www.w3schools.com/howto/howto_css_switch.asp */
-  /* The switch - the box around the slider */
   .switch {
     position: relative;
     display: inline-block;
@@ -17,14 +15,14 @@ const StyledNightmode = styled.div`
     height: 24px;
   }
 
-  /* Hide default HTML checkbox */
+
   .switch input {
     opacity: 0;
     width: 0;
     height: 0;
   }
 
-  /* The slider */
+ 
   .slider {
     position: absolute;
     cursor: pointer;
@@ -63,7 +61,7 @@ const StyledNightmode = styled.div`
     transform: translateX(16px);
   }
 
-  /* Rounded sliders */
+ 
   .slider.round {
     border-radius: 30px;
   }
@@ -73,4 +71,4 @@ const StyledNightmode = styled.div`
   }
 `;
 
-export default StyledNightmode;
+export default StyledNightMode;

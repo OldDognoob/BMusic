@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledWbnPlayer = styled.Div`
+const StyledPlayer = styled.Div`
 background: ${props => props.theme.bgcolor};
 border:${props=> props.theme.border};
 max-width:1900px;
@@ -16,4 +16,4 @@ transition: all 0.5s ease;
     max-height: 10000px;
 }
 `;
-export default StyledWbnPlayer;
+export default StyledPlayer;

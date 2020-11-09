@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     font-size: 10px;
-    font-family: 'Hind', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
   }
 `;
 

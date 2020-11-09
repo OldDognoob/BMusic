@@ -22,7 +22,7 @@ cursor: pointer;
 position: relative;
 
 ::before{
-    display:@{props=>(props.active || !props.played ? "none":"block")};
+    display:${(props)=>(props.active || !props.played ? "none":"block")};
     content:"";
     width:10px;
     min-height:10px;
@@ -32,15 +32,15 @@ position: relative;
     left:0;
     top:19px;
 }
-.wbn-player_video-nr{
+.player_video-nr{
     flex-grow: 1;
     max-width:30px;
     padding-right:20px;
     border-right: 2px solid #565656;
 }
 
-.wbn-player__video-name,
-.wbn-player__video-name a {
+.player__video-name,
+.player__video-name a {
     flex-grow: 10;
     padding: 0 0 0 10px;
     color: ${(props) => props.theme.color};
@@ -49,7 +49,7 @@ position: relative;
     display: block;
 }
 
-.wbn-player__video-time{
+.player__video-time{
     background:#565656;
     min-width:45px;
     color:#fff;
@@ -61,7 +61,7 @@ position: relative;
     margin:0 0 0 5px;
 }
 
-.wbn-player__video-download {
+.player__video-download {
     flex-grow:1;
     color:${(props) => (props.played ? "#fff" : props.theme.color)};
     margin: 0 0 0 20px;
@@ -72,7 +72,7 @@ position: relative;
     font-style:normal;
     font-weight:normal;
 }
-.wbn-player__video-download a {
+.player__video-download a {
     color:${(props) =>
       props.played && !props.active ? "#fff" : props.theme.color};
 }
