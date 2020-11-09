@@ -61,7 +61,19 @@ const Player = ({ match, history, location }) => {
   ]);
 
   const nightModeCallback = () => {setState({...state, nightMode: !state.nightMode})};
-  const endCallback = () => {};
+  const endCallback = () => {
+    const videoId = props.match.params.activeVideo;
+    const currentVideoIndex = state.videos.findIndex(
+      video => video.id === videoId
+    );
+
+    const nextVideo = currentVideoIndex === state.videos.length - 1 ? 0 : current + 1;
+
+    props.historypush({
+      pathname:`${state.videos[nextVideo].id}`,
+      autoplay: false
+    })
+  };
   const progressCallback = () => {};
 
   return (
