@@ -1,6 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import PlaylistItem from "../PlaylistItem";
+import withLink from '../hoc/withLink'
 import StyledPlaylistItems from "../styles/StyledPlaylistItems";
+
+const PlaylistItemWithLink = withLink(PlaylistItem);
 
 const PlaylistItems = ({videos, active}) => (
   <StyledPlaylistItems>

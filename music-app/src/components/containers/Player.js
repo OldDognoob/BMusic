@@ -60,7 +60,7 @@ const Player = ({ match, history, location }) => {
     state.videos,
   ]);
 
-  const nightModeCallback = () => {};
+  const nightModeCallback = () => {setState({...state, nightMode: !state.nightMode})};
   const endCallback = () => {};
   const progressCallback = () => {};
 
